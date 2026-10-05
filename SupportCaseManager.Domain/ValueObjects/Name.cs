@@ -1,4 +1,6 @@
-﻿public sealed class Name
+﻿namespace SupportCaseManager.Domain.ValueObjects;
+
+public sealed class Name
 {
     public string Value { get; }
 

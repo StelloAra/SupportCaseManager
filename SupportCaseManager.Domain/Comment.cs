@@ -1,10 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace SupportCaseManager.Domain;
 
-namespace SupportCaseManager.Domain
+public class Comment
 {
-    internal class Comment
+    public string Text { get; private set; }
+    public DateTime CreatedAt { get; private set; }
+
+    public Comment(string text)
     {
+        if (string.IsNullOrWhiteSpace(text))
+            throw new ArgumentException("Comment cannot be empty.");
+
+        Text = text.Trim();
+        CreatedAt = DateTime.Now;
     }
 }

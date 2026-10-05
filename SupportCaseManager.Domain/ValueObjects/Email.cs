@@ -1,4 +1,6 @@
-﻿public sealed class Email
+﻿namespace SupportCaseManager.Domain.ValueObjects;
+
+public sealed class Email
 {
     public string Value { get; }
 
