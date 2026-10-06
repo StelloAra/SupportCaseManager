@@ -2,4 +2,8 @@
   <Project Path="SupportCaseManager.Application/SupportCaseManager.Application.csproj" Id="da6db456-a4de-4c44-af72-97d3a1194dc0" />
   <Project Path="SupportCaseManager.Domain/SupportCaseManager.Domain.csproj" />
   <Project Path="SupportCaseManager.Infrastructure/SupportCaseManager.Infrastructure.csproj" Id="d6f6305f-28c2-4194-81df-30a9a36f6942" />
+  <Project Path="SupportCaseManager.Presentation/SupportCaseManager.Presentation.csproj" Id="1e774298-d951-41e7-93a6-54f8f9e56ed6">
+    <Platform Project="x64" />
+    <Deploy />
+  </Project>
 </Solution>

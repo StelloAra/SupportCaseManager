@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SupportCaseManager.Presentation (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "SupportCaseManager.Presentation (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
