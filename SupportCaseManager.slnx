@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="SupportCaseManager.Application/SupportCaseManager.Application.csproj" Id="da6db456-a4de-4c44-af72-97d3a1194dc0" />
   <Project Path="SupportCaseManager.Domain/SupportCaseManager.Domain.csproj" />
 </Solution>
