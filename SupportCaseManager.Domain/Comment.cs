@@ -13,4 +13,9 @@ public class Comment
         Text = text.Trim();
         CreatedAt = DateTime.Now;
     }
+
+    public void RestoreCreatedAt(DateTime createdAt)
+    {
+        CreatedAt = createdAt;
+    }
 }

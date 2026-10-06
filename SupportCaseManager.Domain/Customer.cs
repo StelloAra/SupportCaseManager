@@ -16,6 +16,14 @@ public class Customer
         Email = email;
     }
 
+    public static Customer Rehydrate(Guid id, Name name, Email email)
+    {
+        var customer = new Customer(name, email);
+        customer.Id = id;
+
+        return customer;
+    }
+
     public void UpdateContactInfo(Name name, Email email)
     {
         Name = name;

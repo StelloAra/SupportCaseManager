@@ -48,6 +48,30 @@ public class SupportTicket
         CreatedAt = DateTime.Now;
     }
 
+    public static SupportTicket Rehydrate(
+    Guid id,
+    string title,
+    string description,
+    Guid customerId,
+    TicketPriority priority,
+    TicketStatus status,
+    DateTime createdAt,
+    Guid? technicianId)
+    {
+        var ticket = new SupportTicket(
+            title,
+            description,
+            customerId,
+            priority);
+
+        ticket.Id = id;
+        ticket.Status = status;
+        ticket.CreatedAt = createdAt;
+        ticket.TechnicianId = technicianId;
+
+        return ticket;
+    }
+
     public void AssignTechnician(Guid technicianId)
     {
         if (technicianId == Guid.Empty)
@@ -68,6 +92,14 @@ public class SupportTicket
     public void AddComment(string text)
     {
         var comment = new Comment(text);
+        _comments.Add(comment);
+    }
+
+    public void RestoreComment(string text, DateTime createdAt)
+    {
+        var comment = new Comment(text);
+        comment.RestoreCreatedAt(createdAt);
+
         _comments.Add(comment);
     }
 
