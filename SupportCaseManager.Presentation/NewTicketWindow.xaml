@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Window
+    x:Class="SupportCaseManager.Presentation.NewTicketWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Nytt ärende">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid Padding="24">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+        <!-- Rubrik -->
+
+        <TextBlock
+            Text="Nytt ärende"
+            FontSize="24"
+            FontWeight="SemiBold" />
+
+
+        <!-- Titel -->
+
+        <TextBox
+            x:Name="TitleTextBox"
+            Grid.Row="1"
+            Header="Titel"
+            PlaceholderText="Ange ärendets titel"
+            Margin="0,24,0,0" />
+
+
+        <!-- Beskrivning -->
+
+        <TextBox
+            x:Name="DescriptionTextBox"
+            Grid.Row="2"
+            Header="Beskrivning"
+            PlaceholderText="Beskriv ärendet"
+            AcceptsReturn="True"
+            TextWrapping="Wrap"
+            MinHeight="120"
+            Margin="0,16,0,0" />
+
+
+        <!-- Kund -->
+
+        <ComboBox
+            x:Name="CustomerComboBox"
+            Grid.Row="3"
+            Header="Kund"
+            PlaceholderText="Välj kund"
+            Margin="0,16,0,0" />
+
+
+        <!-- Prioritet -->
+
+        <ComboBox
+            x:Name="PriorityComboBox"
+            Grid.Row="4"
+            Header="Prioritet"
+            SelectedIndex="1"
+            Margin="0,16,0,0">
+
+            <ComboBoxItem Content="Low" />
+            <ComboBoxItem Content="Normal" />
+            <ComboBoxItem Content="High" />
+
+        </ComboBox>
+
+
+        <!-- Knappar -->
+
+        <StackPanel
+            Grid.Row="5"
+            Orientation="Horizontal"
+            HorizontalAlignment="Right"
+            Spacing="12"
+            Margin="0,24,0,0">
+
+            <Button
+                Content="Avbryt"
+                Click="CancelButton_Click" />
+
+            <Button
+                Content="Spara"
+                Click="SaveButton_Click" />
+
+        </StackPanel>
+
+    </Grid>
+
+</Window>

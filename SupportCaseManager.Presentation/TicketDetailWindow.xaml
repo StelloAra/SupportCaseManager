@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Window
+    x:Class="SupportCaseManager.Presentation.TicketDetailWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Ärendedetaljer">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <ScrollViewer>
+
+        <StackPanel Padding="24" Spacing="16">
+
+            <TextBlock
+                Text="Ärendedetaljer"
+                FontSize="28"
+                FontWeight="SemiBold" />
+
+            <TextBlock
+                x:Name="TitleTextBlock"
+                FontSize="22"
+                FontWeight="SemiBold" />
+
+            <TextBlock
+                x:Name="DescriptionTextBlock"
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                x:Name="CustomerTextBlock" />
+
+            <TextBlock
+                x:Name="PriorityTextBlock" />
+
+            <TextBlock
+                x:Name="StatusTextBlock" />
+
+            <TextBlock
+                x:Name="CreatedAtTextBlock" />
+
+        </StackPanel>
+
+    </ScrollViewer>
+
+</Window>
