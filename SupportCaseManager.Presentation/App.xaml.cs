@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SupportCaseManager.Application.Contracts;
 using SupportCaseManager.Application.Services;
 using SupportCaseManager.Infrastructure.Repositories;
+using SupportCaseManager.Presentation;
 
 
 
@@ -26,6 +27,11 @@ namespace SupportCaseManager.Presentation
             services.AddSingleton<CustomerService>();
             services.AddSingleton<TicketService>();
             services.AddSingleton<TicketQueryService>();
+
+
+            services.AddSingleton<MainWindow>();
+            services.AddTransient<NewCustomerWindow>();
+            services.AddTransient<NewTicketWindow>();
 
             _serviceProvider = services.BuildServiceProvider();
         }

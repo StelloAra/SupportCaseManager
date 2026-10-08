@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <Window
     x:Class="SupportCaseManager.Presentation.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -7,13 +8,146 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Title="SupportCaseManager.Presentation">
+    Title="SupportCaseManager">
 
     <Window.SystemBackdrop>
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <Grid>
+    <Grid Padding="24">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+        <!-- Rubrik -->
+
+        <TextBlock
+            Text="Supportärenden"
+            FontSize="28"
+            FontWeight="SemiBold" />
+
+
+        <!-- Sökning och filter -->
+
+        <StackPanel
+            Grid.Row="1"
+            Orientation="Horizontal"
+            Spacing="12"
+            Margin="0,24,0,16">
+
+            <TextBox
+                x:Name="SearchTextBox"
+                PlaceholderText="Sök på titel eller kundnamn"
+                Width="300"
+                TextChanged="SearchTextBox_TextChanged"/>
+
+            <ComboBox
+                x:Name="StatusComboBox"
+                Header="Status"
+                Width="180"
+                SelectedIndex="0"
+                SelectionChanged="StatusComboBox_SelectionChanged">
+
+                <ComboBoxItem Content="Alla" />
+                <ComboBoxItem Content="New" />
+                <ComboBoxItem Content="InProgress" />
+                <ComboBoxItem Content="Resolved" />
+
+            </ComboBox>
+
+            <Button
+                Content="Ny kund"
+                VerticalAlignment="Bottom"
+                Click="NewCustomerButton_Click" />
+
+            <Button
+                Content="Nytt ärende"
+                VerticalAlignment="Bottom"
+                Click="NewTicketButton_Click" />
+
+        </StackPanel>
+
+
+        <!-- Lista med ärenden -->
+
+        <ListView
+            x:Name="TicketListView"
+            SelectionChanged="TicketListView_SelectionChanged"
+            Grid.Row="2">
+
+            <ListView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border
+                        Padding="12"
+                        Margin="0,0,0,8"
+                        BorderThickness="1">
+
+                        <Grid>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="120" />
+                                <ColumnDefinition Width="140" />
+                            </Grid.ColumnDefinitions>
+
+
+                            <!-- Titel och kund -->
+
+                            <StackPanel>
+
+                                <TextBlock
+                                    Text="{Binding Title}"
+                                    FontSize="16"
+                                    FontWeight="SemiBold" />
+
+                                <TextBlock
+                                    Text="{Binding CustomerName}"
+                                    Margin="0,4,0,0"
+                                    Opacity="0.7" />
+
+                            </StackPanel>
+
+
+                            <!-- Prioritet -->
+
+                            <TextBlock
+                                Grid.Column="1"
+                                Text="{Binding Priority}"
+                                VerticalAlignment="Center" />
+
+
+                            <!-- Status -->
+
+                            <TextBlock
+                                Grid.Column="2"
+                                Text="{Binding Status}"
+                                VerticalAlignment="Center" />
+
+
+                            <!-- Skapad -->
+
+                            <TextBlock
+                                Grid.Column="3"
+                                Text="{Binding CreatedAt}"
+                                VerticalAlignment="Center" />
+
+                        </Grid>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+        </ListView>
 
     </Grid>
+
 </Window>
